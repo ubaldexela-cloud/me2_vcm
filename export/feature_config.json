@@ -1,0 +1,35 @@
+{
+  "sample_rate": 16000,
+  "n_fft": 512,
+  "win_length": 512,
+  "hop_length": 160,
+  "n_mels": 40,
+  "f_min": 0,
+  "f_max": 8000,
+  "power": 2.0,
+  "log_eps": 1e-06,
+  "center": false,
+  "pad_mode": "reflect",
+  "window": "periodic_hann",
+  "mel_scale": "htk",
+  "mel_norm": null,
+  "num_samples": 64000,
+  "n_frames": 397,
+  "feature_shape": [
+    1,
+    40,
+    397
+  ],
+  "model_input_shape": [
+    1,
+    1,
+    40,
+    397
+  ],
+  "num_classes": 16,
+  "dropout": 0.2,
+  "duration_seconds": 4.0,
+  "frontend": "numpy",
+  "reflect_padding_applied": false,
+  "reflect_padding_note": "pad_mode reflect is unused because center is False, matching TorchAudio."
+}

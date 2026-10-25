@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "ICY ME2 Voice Controlled Smart Device"
+message: "Cite this student project if you use the code or report."
+type: software
+authors:
+  - family-names: Ubalde
+    given-names: Xela
+date-released: "2026-10-24"
+version: "ICY_final"
+license: MIT
+url: "https://github.com/ubaldexela-cloud/me2_vcm"

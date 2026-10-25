@@ -1,0 +1,32 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.DS_Store
+Thumbs.db
+.env
+*.pem
+id_rsa
+id_ed25519
+*askpass*
+*.ovpn
+
+# Checkpoints / ONNX: Release later only after a weight license is chosen
+artifacts/*.pt
+artifacts/*.pth
+artifacts/*.bin
+export/*.onnx
+*.onnx
+
+# Audio / third-party models
+*.wav
+*.flac
+*.mp3
+vosk-model-*/
+wakeword/
+
+# Local dumps and secrets
+reports/repro_eval_*.out
+reports/repro_eval_*.err
+TRANSFER.md

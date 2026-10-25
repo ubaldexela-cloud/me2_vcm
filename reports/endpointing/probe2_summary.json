@@ -1,0 +1,26 @@
+{
+  "eval_acc": 0.8400588482555695,
+  "eval_f1": 0.7785515388212305,
+  "prefix_acc": 0.8396385035729298,
+  "prefix_f1": 0.778234464067179,
+  "endpoint_live_acc": 0.8398486759142497,
+  "endpoint_live_f1": 0.7788324470022899,
+  "delta_f1_live_vs_eval": 0.00028090818105941384,
+  "delta_f1_live_vs_prefix": 0.00059798293511093,
+  "SET_TIMER_f1": {
+    "eval_4s": 0.8589743589743589,
+    "prefix_4s": 0.8387096774193549,
+    "endpoint_raw": 0.8387096774193549,
+    "endpoint_live": 0.8387096774193549
+  },
+  "SILENCE_f1": {
+    "eval_4s": 0.756152125279642,
+    "prefix_4s": 0.756152125279642,
+    "endpoint_raw": 0.7644444444444444,
+    "endpoint_live": 0.7644444444444444
+  },
+  "wait_sec_median": 3.34,
+  "frac_early_stop": 0.6971416561580496,
+  "CtoW_live_vs_eval": 30,
+  "onnx_untouched": true
+}

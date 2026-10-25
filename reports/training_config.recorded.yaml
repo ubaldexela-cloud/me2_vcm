@@ -1,0 +1,98 @@
+# From-scratch retrain on leak-safe mix:
+# VCM_BALANCED (SHA-unique) + leftover A-train + on-disk filtered HF.
+# Run 3 recipe, random init. Does not overwrite Run 3, Scratch, A, B, or mel_norm.
+
+experiment_name: safe_mix_run1
+seed: 42
+
+sample_rate: 16000
+duration_seconds: 4.0
+num_samples: 64000
+channels: 1
+n_fft: 512
+win_length: 512
+hop_length: 160
+n_mels: 40
+f_min: 0
+f_max: 8000
+power: 2.0
+log_eps: 1.0e-6
+center: false
+window: hann
+n_frames: 397
+feature_shape: [1, 40, 397]
+
+norm_path: $ME2_VCM/normalization/mel_norm.pt
+run3_checkpoint: $ME2_VCM/checkpoints/targeted_temp_run3/best_model.pt
+scratch_checkpoint: $ME2_VCM/checkpoints/scratch_combined_run1/best_model.pt
+
+num_classes: 16
+model: VCM-DS-Tiny
+expected_parameters: 95376
+dropout: 0.20
+
+# Mix filepaths are absolute; audio_root is unused for those rows.
+train_dataset: /
+train_manifest: $ME2_VCM/data/safe_mix_train1/manifests/train.csv
+val_dataset: $VCM_MASTER
+val_manifest: $VCM_MASTER/manifests/val.csv
+test_dataset: $VCM_MASTER
+test_manifest: $VCM_MASTER/manifests/test.csv
+balanced_root: $VCM_BALANCED
+a_root: $VCM_MASTER
+
+expected_train: 30254
+expected_balanced: 15266
+expected_leftover: 13329
+expected_hf: 1659
+
+batch_size: 64
+num_workers: 0
+cache_waveforms: true
+optimizer: AdamW
+learning_rate: 0.001
+weight_decay: 0.0001
+max_epochs: 50
+early_stopping_patience: 7
+scheduler: ReduceLROnPlateau
+scheduler_mode: max
+scheduler_factor: 0.5
+scheduler_patience: 3
+min_lr: 1.0e-6
+loss: CrossEntropyLoss
+
+set_temperature:
+  real_sample_weight: 4.0
+  synthetic_sample_weight: 1.0
+  other_class_weight: 1.0
+  speed_p: 0.50
+  speed_min: 0.95
+  speed_max: 1.05
+  pitch_p: 0.50
+  pitch_semitones: 1.0
+  spec_p: 0.30
+  freq_mask_param: 3
+  time_mask_param: 15
+  n_freq_masks: 1
+  n_time_masks: 1
+
+augmentation:
+  enabled: true
+  noise_dir: $ME2_VCM/data/hf_finetune_run5/gsc_background_noise
+  gain_p: 0.50
+  gain_min: 0.70
+  gain_max: 1.30
+  shift_p: 0.50
+  shift_ms: 80.0
+  noise_p: 0.50
+  snr_bands:
+    - [10.0, 15.0, 0.20]
+    - [15.0, 20.0, 0.40]
+    - [20.0, 25.0, 0.40]
+  val_augment: false
+  test_augment: false
+
+checkpoint_dir: $ME2_VCM/checkpoints/safe_mix_run1
+results_dir: $ME2_VCM/results/safe_mix_run1
+run3_results: $ME2_VCM/results/targeted_temp_run3
+scratch_results: $ME2_VCM/results/scratch_combined_run1

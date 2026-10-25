@@ -1,0 +1,15 @@
+{
+  "n_dataset": 30254,
+  "n_temp_real_files": 144,
+  "n_temp_synth_files": 679,
+  "n_other_files": 29431,
+  "weight_real": 4.0,
+  "weight_synth": 1.0,
+  "weight_other": 1.0,
+  "total_weight": 30686.0,
+  "expected_temp_draws_per_epoch": 1237.3320080818614,
+  "expected_temp_real_draws_per_epoch": 567.8910252232288,
+  "expected_temp_synth_draws_per_epoch": 669.4409828586327,
+  "pct_temp_exposure_from_real": 45.89641434262948,
+  "unweighted_pct_temp_real_files": 17.496962332928312
+}

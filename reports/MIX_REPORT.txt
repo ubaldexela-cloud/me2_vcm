@@ -1,0 +1,38 @@
+SAFE MIX TRAIN (no training run)
+========================================================================
+Created: 2026-10-23
+A / B / HF source trees: NOT modified
+Checkpoints: NOT modified
+Training: NOT started
+
+Storage: JuiceFS ~12G free. Mix is MANIFEST-ONLY (absolute paths to
+existing WAV/FLAC). No audio was copied.
+
+Manifest:
+  $ME2_VCM/data/safe_mix_train1/manifests/train.csv
+Val / test (unchanged, not in this mix):
+  $VCM_MASTER/manifests/val.csv     (4734)
+  $VCM_MASTER/manifests/test.csv    (4758)
+
+Composition (30,254 clips, 418 speakers, 30,254 unique SHA)
+------------------------------------------------------------------------
+  vcm_balanced       15,266   Dataset B minus 2 in-B SHA duplicates
+  a_train_leftover   13,329   A-train clips Plan D2 did not put in B
+  hf_usable           1,659   filtered HF train audio that exists on disk
+  skipped missing     4,116   usable HF CSV rows with no WAV
+                              (only 1,673 HF WAVs were extracted;
+                               parquet/Hub cache is gone)
+  skipped dup SHA        16   2 inside B + 14 HF already in B/A-train
+
+Leak checks
+------------------------------------------------------------------------
+  mix speakers ∩ A val:  0
+  mix speakers ∩ A test: 0
+  mix SHA ∩ A val:       0
+  mix SHA ∩ A test:      0
+
+This is larger than B+1,673 HF (~16.9k) because it restores the 13,329
+A-train majority-class clips that D2 downsampled. It is NOT Dataset A
+val/test and NOT the full Hub train split.
+
+Do not start training from this mix report without an explicit go-ahead.

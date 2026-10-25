@@ -1,0 +1,40 @@
+{
+  "device": "NVIDIA A100 80GB PCIe",
+  "torch": "2.8.0+cu128",
+  "checkpoint": "artifacts/best_model.pt",
+  "checkpoint_epoch": 33,
+  "checkpoint_source": "best",
+  "trainable_parameters": 95376,
+  "n_test": 4758,
+  "got": {
+    "accuracy": 0.8400588482555695,
+    "macro_f1": 0.7785515388212305,
+    "weighted_f1": 0.835083840264589,
+    "PLAY_MUSIC": 0.7941176470588236,
+    "WEATHER": 0.4649572649572649,
+    "TIME": 0.5945945945945945,
+    "LIGHT_ON": 0.9259927797833936,
+    "LIGHT_OFF": 0.9217603911980441,
+    "LIGHT_DIM": 0.5925925925925926,
+    "SET_TIMER": 0.8589743589743589,
+    "SET_ALARM": 0.6416666666666667,
+    "SET_TEMPERATURE": 0.888888888888889,
+    "MEDIA_PAUSE": 0.9629629629629629,
+    "MEDIA_STOP": 0.42391304347826086,
+    "MEDIA_NEXT": 0.995850622406639,
+    "VOLUME_UP": 0.8786717752234994,
+    "VOLUME_DOWN": 0.8695652173913044,
+    "UNKNOWN": 0.8861636896827512,
+    "SILENCE": 0.756152125279642
+  },
+  "recorded": {
+    "accuracy": 0.8400588482555695,
+    "macro_f1": 0.7785515388212305,
+    "best_epoch": 33,
+    "trainable": 95376
+  },
+  "delta_accuracy": 0.0,
+  "delta_macro_f1": 0.0,
+  "matches_recorded": true,
+  "evaluation_not_training": true
+}

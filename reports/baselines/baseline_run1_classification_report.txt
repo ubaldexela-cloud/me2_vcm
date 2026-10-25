@@ -1,0 +1,40 @@
+class               precision     recall         f1    support
+--------------------------------------------------------------
+PLAY_MUSIC             0.2024     0.5730     0.2991         89
+WEATHER                0.3822     0.2676     0.3148        370
+TIME                   0.3929     0.6769     0.4972         65
+LIGHT_ON               0.7957     0.7472     0.7707        542
+LIGHT_OFF              0.8383     0.6557     0.7359        427
+LIGHT_DIM              0.5294     0.4091     0.4615         44
+SET_TIMER              0.7284     0.7375     0.7329         80
+SET_ALARM              0.3167     0.6742     0.4310        132
+SET_TEMPERATURE        0.0000     0.0000     0.0000         20
+MEDIA_PAUSE            0.6591     0.7073     0.6824         41
+MEDIA_STOP             0.3396     0.7826     0.4737         46
+MEDIA_NEXT             1.0000     1.0000     1.0000        120
+VOLUME_UP              0.4873     0.6288     0.5491        396
+VOLUME_DOWN            0.6095     0.7447     0.6703        329
+UNKNOWN                0.8406     0.8094     0.8247       1779
+SILENCE                0.0000     0.0000     0.0000        278
+--------------------------------------------------------------
+accuracy                                     0.6650       4758
+macro avg              0.5076     0.5884     0.5277       4758
+weighted avg           0.6619     0.6650     0.6553       4758
+
+TEST UNKNOWN / SILENCE ANALYSIS
+
+=== UNKNOWN (id=14) ===
+  precision: 0.840630
+  recall:    0.809444
+  f1:        0.824742
+  support:   1779
+  UNKNOWN → valid command errors: 339
+  valid command → UNKNOWN errors: 273
+
+=== SILENCE (id=15) ===
+  precision: 0.000000
+  recall:    0.000000
+  f1:        0.000000
+  support:   278
+  SILENCE → valid command errors: 278
+  valid command → SILENCE errors: 0

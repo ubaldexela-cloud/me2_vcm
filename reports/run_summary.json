@@ -1,0 +1,24 @@
+{
+  "n_train": 30254,
+  "pools": {
+    "vcm_balanced": 15266,
+    "a_train_leftover": 13329,
+    "hf_usable": 1659
+  },
+  "leak_check": {
+    "speaker_overlap_val": 0,
+    "speaker_overlap_test": 0,
+    "sha_overlap_val": 0,
+    "sha_overlap_test": 0
+  },
+  "best_epoch": 33,
+  "best_val_macro_f1": 0.797492080662753,
+  "test_accuracy": 0.8400588482555695,
+  "test_macro_f1": 0.7785515388212305,
+  "stopping": "early_stopping_patience_7",
+  "train_time_sec": 28535.5549929142,
+  "init": "random",
+  "device": "NVIDIA A100 80GB PCIe",
+  "checkpoint_dir": "artifacts/best_model.pt (release asset; not in git)",
+  "locked_unmodified": true
+}

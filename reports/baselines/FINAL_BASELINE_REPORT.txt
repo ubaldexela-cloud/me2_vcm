@@ -1,0 +1,135 @@
+ME2 VCM — FINAL BASELINE REPORT (baseline_run1)
+========================================================================
+Generated: 2026-09-19T06:13:14
+
+## 1. Experiment Overview
+Experiment: baseline_run1
+Goal: Measure Dataset B + VCM-DS-Tiny with locked preprocessing (no extra aug, no class weights).
+Status: COMPLETE
+Second experiment: NOT started.
+
+## 2. Dataset Configuration
+Train: Dataset B $VCM_BALANCED/manifests/train.csv  n=15268
+Val:   Dataset A $VCM_MASTER/manifests/val.csv      n=4734
+Test:  Dataset A $VCM_MASTER/manifests/test.csv     n=4758
+Class mapping: locked 0..15 (CLASS_TO_ID in src/utils.py)
+Test used only once after model selection on validation macro F1.
+
+## 3. Preprocessing
+16 kHz mono float32; PCM via soundfile float decode (=/32768 for PCM16)
+No peak/RMS/loudness normalization
+Train: random 4 s crop / right-pad
+Val/Test: center crop / right-pad (deterministic)
+No additional waveform augmentation
+
+## 4. Feature Extraction
+Log-Mel: n_fft=512 hop=160 n_mels=40 f_min=0 f_max=8000 center=False
+Shape: [B, 1, 40, 397]
+log(mel + 1e-6)
+
+## 5. Normalization
+File: $ME2_VCM/normalization/mel_norm.pt
+Source: Dataset B train only (15,268 files) — NOT recalculated
+
+## 6. Model Architecture
+VCM-DS-Tiny depthwise-separable CNN
+Trainable parameters: 95376
+MACs / 4 s: 32890816 (32.891M)
+Output: raw logits [B, 16] (Softmax not in model)
+
+## 7. Training Configuration
+optimizer: AdamW
+learning_rate: 0.001
+weight_decay: 0.0001
+batch_size: 64
+max_epochs: 50
+loss: CrossEntropyLoss (no class weights)
+scheduler: ReduceLROnPlateau(mode=max, factor=0.5, patience=3, min_lr=1e-06)
+monitor: validation macro F1
+early_stopping_patience: 7
+seed: 42
+device: cpu
+waveform_cache: True
+
+## 8. Training Results
+epochs_completed: 20
+best_epoch: 13
+best_val_macro_f1: 0.630061
+stopping_reason: early_stopping_patience_7
+total_train_time_sec: 2593.1
+avg_epoch_time_sec: 129.7
+gpu_memory_peak_MiB: 0.00
+See training_log.csv and curves.
+
+## 9. Best Validation Results
+epoch: 13
+accuracy: 0.660541
+macro_precision: 0.620079
+macro_recall: 0.682420
+macro_f1: 0.630061
+See best_model_validation_report.txt / metrics / CM.
+
+## 10. Test Results
+(ONE evaluation with best checkpoint)
+accuracy: 0.664985
+macro_precision: 0.507631
+macro_recall: 0.588385
+macro_f1: 0.527704
+weighted_precision: 0.661869
+weighted_recall: 0.664985
+weighted_f1: 0.655343
+
+## 11. Per-Class Results
+See best_model_validation_metrics.csv and test_metrics.csv
+
+## 12. UNKNOWN Analysis
+VALIDATION:
+  precision=0.877110 recall=0.652436 f1=0.748272
+  UNKNOWN→command=692  command→UNKNOWN=182
+TEST:
+  precision=0.840630 recall=0.809444 f1=0.824742
+  UNKNOWN→command=339  command→UNKNOWN=273
+No UNKNOWN threshold tuned.
+
+## 13. SILENCE Analysis
+VALIDATION:
+  precision=1.000000 recall=0.979730 f1=0.989761
+  SILENCE→command=6  command→SILENCE=0
+TEST:
+  precision=0.000000 recall=0.000000 f1=0.000000
+  SILENCE→command=278  command→SILENCE=0
+
+## 14. Confusion Matrix Analysis
+Artifacts: validation_confusion_matrix.*, best_model_validation_confusion_matrix.*, test_confusion_matrix.*
+Failure CSVs: validation_failure_cases.csv, test_failure_cases.csv
+
+## 15. Confidence Analysis
+See best_model_validation_confidence.txt and test_confidence.txt
+No deployment threshold chosen.
+
+## 16. Model Resource Analysis
+params=95376  FP32=372.56 KiB  MACs=32.891M
+No measured latency.
+
+## 17. Known Errors / Failure Cases
+See validation_failure_cases.csv and test_failure_cases.csv (analysis only; not used for retraining).
+
+## 18. Reproducibility Information
+seed=42
+torch=2.8.0+cu128
+device=cpu
+config=checkpoints/baseline_run1/training_config.yaml
+norm=normalization/mel_norm.pt
+
+## 19. Limitations
+CPU-only training (CUDA unavailable on this host).
+No SpecAugment / Mixup / class-weighted loss (by design for baseline).
+f_min=0 follows implementation lock (design report mentioned f_min=20).
+Disk quota on JuiceFS home is nearly full.
+
+## 20. Baseline Conclusions
+Best checkpoint selected by highest validation macro F1 (epoch 13).
+Test metrics reported once for baseline_run1; no post-test tuning performed.
+Dataset A modified: NO
+Dataset B modified: NO
+Integrity note: post-run checker initially counted only *.wav under A (18194); full audio file count remains 36622. Manifests mtime unchanged (2026-09-17). No files added/deleted.

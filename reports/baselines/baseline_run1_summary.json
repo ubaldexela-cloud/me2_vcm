@@ -1,0 +1,33 @@
+{
+  "best_epoch": 13,
+  "stopping_reason": "early_stopping_patience_7",
+  "epochs_completed": 20,
+  "batch_size": 64,
+  "device": "cpu",
+  "best_val": {
+    "macro_precision": 0.6200785938288214,
+    "macro_recall": 0.6824198544481015,
+    "macro_f1": 0.6300614211310959,
+    "accuracy": 0.660540768905788
+  },
+  "test": {
+    "macro_precision": 0.5076305024173466,
+    "macro_recall": 0.5883853668246906,
+    "macro_f1": 0.5277035331431548,
+    "accuracy": 0.6649852879361076,
+    "weighted_precision": 0.6618686275177751,
+    "weighted_recall": 0.6649852879361076,
+    "weighted_f1": 0.6553426614070814
+  },
+  "train_time_sec": 2593.0620942115784,
+  "integrity": {
+    "Dataset A modified": "NO",
+    "Dataset B modified": "NO",
+    "ok_a": true,
+    "ok_b": true,
+    "a_audio_all_files": 36622,
+    "a_audio_wav_only_note": 18194,
+    "b_audio": 15268,
+    "note": "Initial checker counted only *.wav (18194); Dataset A also has non-wav audio. All 36622 files + manifests unchanged (mtime 2026-09-17)."
+  }
+}

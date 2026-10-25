@@ -1,0 +1,13 @@
+# Versions recorded on the Safe Mix A100 training / export jobs
+# (PyTorch 2.8.0+cu128, torchaudio 2.8.0+cu128, Python 3.9).
+# Install a matching CUDA wheel from https://pytorch.org — do not use CPU wheels
+# for training or locked-test evaluation.
+
+torch==2.8.0
+torchaudio==2.8.0
+numpy==2.0.2
+PyYAML==5.4.1
+soundfile==0.13.1
+scipy==1.13.1
+onnx==1.19.1
+onnxruntime==1.19.2

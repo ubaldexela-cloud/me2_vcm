@@ -1,0 +1,38 @@
+{
+  "id_to_class": {
+    "0": "PLAY_MUSIC",
+    "1": "WEATHER",
+    "2": "TIME",
+    "3": "LIGHT_ON",
+    "4": "LIGHT_OFF",
+    "5": "LIGHT_DIM",
+    "6": "SET_TIMER",
+    "7": "SET_ALARM",
+    "8": "SET_TEMPERATURE",
+    "9": "MEDIA_PAUSE",
+    "10": "MEDIA_STOP",
+    "11": "MEDIA_NEXT",
+    "12": "VOLUME_UP",
+    "13": "VOLUME_DOWN",
+    "14": "UNKNOWN",
+    "15": "SILENCE"
+  },
+  "class_to_id": {
+    "PLAY_MUSIC": 0,
+    "WEATHER": 1,
+    "TIME": 2,
+    "LIGHT_ON": 3,
+    "LIGHT_OFF": 4,
+    "LIGHT_DIM": 5,
+    "SET_TIMER": 6,
+    "SET_ALARM": 7,
+    "SET_TEMPERATURE": 8,
+    "MEDIA_PAUSE": 9,
+    "MEDIA_STOP": 10,
+    "MEDIA_NEXT": 11,
+    "VOLUME_UP": 12,
+    "VOLUME_DOWN": 13,
+    "UNKNOWN": 14,
+    "SILENCE": 15
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "total": 823,
+  "real_original": 84,
+  "real_augmented": 60,
+  "synthetic_original": 500,
+  "synthetic_augmented": 179,
+  "real_derived": 144,
+  "synthetic_derived": 679,
+  "expected_match": false
+}

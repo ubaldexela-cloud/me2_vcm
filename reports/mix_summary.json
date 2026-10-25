@@ -1,0 +1,31 @@
+{
+  "status": "DONE_NO_TRAIN",
+  "disk_avail_note": "JuiceFS ~12G free; mix is manifest-only (no audio copied)",
+  "manifest": "$ME2_VCM/data/safe_mix_train1/manifests/train.csv",
+  "n_train": 30254,
+  "n_after_B": 15266,
+  "n_leftover_A_added": 13329,
+  "n_hf_added": 1659,
+  "hf_usable_csv": 5789,
+  "hf_wavs_on_disk": 1673,
+  "hf_usable_missing_audio": 4116,
+  "skip": {
+    "dup_sha": 16,
+    "missing_file": 4116
+  },
+  "speakers": 418,
+  "speaker_overlap_val": 0,
+  "speaker_overlap_test": 0,
+  "sha_overlap_val": 0,
+  "sha_overlap_test": 0,
+  "unique_sha": 30254,
+  "pool": {
+    "vcm_balanced": 15266,
+    "a_train_leftover": 13329,
+    "hf_usable": 1659
+  },
+  "val_manifest": "$VCM_MASTER/manifests/val.csv",
+  "test_manifest": "$VCM_MASTER/manifests/test.csv",
+  "A_B_HF_modified": false,
+  "trained": false
+}
