@@ -1,0 +1,123 @@
+{
+  "experiment": "safe_mix_run1",
+  "model": "VCM-DS-Tiny",
+  "class": "VCMDSTiny",
+  "slurm": {
+    "training_job_id": 66143,
+    "training_job_name": "me2-safe-mix",
+    "partition": "uperdfi-gpu",
+    "node": "uperdfi-a100gpu0",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "submit": "2026-10-23T03:12:16",
+    "start": "2026-10-23T03:12:16",
+    "end": "2026-10-23T11:18:37",
+    "elapsed": "08:06:21",
+    "elapsed_raw_sec": 29181,
+    "req_tres": "billing=4,cpu=4,mem=64G,node=1",
+    "alloc_tres": "billing=4,cpu=4,mem=64G,node=1",
+    "alloc_tres_contains_gpu": false,
+    "sbatch_gres_request": "gpu:nvidia_a100_80gb_pcie:1",
+    "sbatch_nodelist": "uperdfi-a100gpu0",
+    "scontrol_show_job": "unavailable after job completion",
+    "repro_eval_job_id": 66249,
+    "repro_eval_job_name": "icy-vcm-repro-eval",
+    "repro_eval_node": "uperdfi-a100gpu0",
+    "repro_eval_start": "2026-10-25T16:57:52",
+    "repro_eval_end": "2026-10-25T17:02:50",
+    "repro_eval_elapsed_raw_sec": 298
+  },
+  "hardware": {
+    "node": "uperdfi-a100gpu0",
+    "gpu_model_logged": "NVIDIA A100 80GB PCIe",
+    "gpus_used": 1,
+    "gpus_used_evidence": "Job 66143 requested --gres=gpu:nvidia_a100_80gb_pcie:1, logged torch.cuda.get_device_name(0), and did not use DDP/DataParallel. Current node inventory (scontrol show node, 2026-10-25) reports Gres=gpu:nvidia_a100_80gb_pcie:1. sacct AllocTRES/ReqTRES did not record a GPU TRES.",
+    "gpu_tres_in_sacct": "unverified"
+  },
+  "software": {
+    "torch": "2.8.0+cu128",
+    "torch_source": "job 66143 stdout: torch=2.8.0+cu128",
+    "cuda_wheel_tag": "cu128",
+    "torch_version_cuda": "unverified (not printed in job 66143 stdout/stderr)",
+    "nvidia_driver": "unverified (nvidia-smi not recorded at job time)"
+  },
+  "seed": 42,
+  "seeding": {
+    "set_seed_covers": [
+      "random",
+      "numpy",
+      "PYTHONHASHSEED",
+      "torch.manual_seed",
+      "torch.cuda.manual_seed_all",
+      "cudnn.deterministic=True",
+      "cudnn.benchmark=False"
+    ],
+    "also_seeded": [
+      "WeightedRandomSampler torch.Generator",
+      "WaveformAugmentor",
+      "SetTemperatureSpeakerAugmentor"
+    ],
+    "num_workers": 0,
+    "not_set": [
+      "torch.use_deterministic_algorithms",
+      "CUBLAS_WORKSPACE_CONFIG"
+    ],
+    "pythonhashseed_note": "PYTHONHASHSEED is assigned inside set_seed after interpreter start, so it does not fully control this process.",
+    "bit_exact_retrain_claimed": false
+  },
+  "best_epoch": 33,
+  "best_val_macro_f1": 0.797492080662753,
+  "best_val_accuracy": 0.834178284748627,
+  "test_accuracy": 0.8400588482555695,
+  "test_macro_f1": 0.7785515388212305,
+  "test_weighted_f1": 0.835083840264589,
+  "stopping": "early_stopping_patience_7",
+  "stopped_epoch": 40,
+  "max_epochs": 50,
+  "early_stopping_patience": 7,
+  "train_time_sec": 28535.5549929142,
+  "train_time_sec_rounded": 28535.6,
+  "train_time_excludes": [
+    "model initialization",
+    "train/val waveform cache load",
+    "locked-test evaluation after early stop"
+  ],
+  "slurm_wall_sec": 29181,
+  "device": "NVIDIA A100 80GB PCIe",
+  "torch": "2.8.0+cu128",
+  "init": "random",
+  "precision": {
+    "mode": "FP32",
+    "explicit_config_key": false,
+    "amp_used": false,
+    "note": "FP32 is the observed implicit precision. The train loop used default float tensors and no AMP/autocast/GradScaler. This is not an explicit recorded config key."
+  },
+  "optimizer": "AdamW",
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size": 64,
+  "loss": "CrossEntropyLoss",
+  "scheduler": "ReduceLROnPlateau",
+  "scheduler_monitor": "val_macro_f1",
+  "trainable_parameters": 95376,
+  "macs": 32890816,
+  "n_train": 30254,
+  "n_val": 4734,
+  "n_test": 4758,
+  "split_evidence": {
+    "speakers_in_mix": 418,
+    "unique_train_sha": 30254,
+    "speaker_overlap_val": 0,
+    "speaker_overlap_test": 0,
+    "sha_overlap_val": 0,
+    "sha_overlap_test": 0,
+    "image_hashes": "not_applicable"
+  },
+  "checkpoint_sha256": "4c653cf5710ab46da4a94301045d47cb574a508d30b626f8158304825aa43e7f",
+  "onnx_sha256": "3dd066e96e4cc9e17a1e1a571b1a6132e1b55e74870bb854268118e38555a0fb",
+  "mel_norm_sha256": "3a67c19aa467941fc55cdc7dabf4a6faa08deea3c28bcfd8c750ba66da9ec2ed",
+  "weight_license": null,
+  "do_not_upload_pt": true,
+  "public_repo_cannot_reproduce_locked_test": true,
+  "public_repo_cannot_train_from_scratch": true
+}

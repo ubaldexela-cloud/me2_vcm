@@ -1,7 +1,9 @@
 # Reproduction test log
 
-Status: **tested on HPC A100** (Slurm job 66249, 2026-10-25, 4 min 58 s).\
+Status: **tested on HPC A100** (Slurm job 66249, 2026-10-25, 4 min 58 s / `sacct` ElapsedRaw 298).\
 This is **evaluation of released weights**, not training from scratch.
+
+The **public GitHub repository alone cannot run this test** and cannot train from scratch. Required extras: private locked `VCM_MASTER` test audio, gitignored `artifacts/best_model.pt` and `artifacts/mel_norm.pt`, and a CUDA GPU (`eval_locked_test.py` refuses CPU).
 
 ## Command actually run
 
@@ -21,6 +23,7 @@ python3 scripts/eval_locked_test.py \
 | Item | Result |
 |---|---|
 | Device | NVIDIA A100 80GB PCIe |
+| Node | `uperdfi-a100gpu0` (`sacct` 66249) |
 | PyTorch | 2.8.0+cu128 |
 | Checkpoint epoch / source | 33 / `best` |
 | Parameters | 95,376 |
@@ -39,3 +42,4 @@ Outputs: `reports/repro_eval/repro_summary.json` and the regenerated metrics CSV
 - CPU is refused by the script (cluster GPU-only rule).
 - Training from scratch was **not** re-run.
 - ONNX Runtime locked-test was **not** re-run in this job (export parity already exists in the original export report).
+- Job-time CUDA driver and `torch.version.cuda` were not printed (same limitation as training job 66143).

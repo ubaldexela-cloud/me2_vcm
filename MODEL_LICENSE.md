@@ -2,6 +2,8 @@
 
 This package **does not publish** trained weights.
 
+The repository MIT license applies to original code and documentation only. It does **not** license `artifacts/best_model.pt`, `export/model.onnx`, or `artifacts/mel_norm.pt`.
+
 - `export/model.onnx` is **not** committed. Keep a local copy from the HPC package and verify SHA-256 `3dd066e96e4cc9e17a1e1a571b1a6132e1b55e74870bb854268118e38555a0fb`. Redistribution terms are undecided.
 - `artifacts/best_model.pt` is a local copy for HPC transfer only. It is listed in `.gitignore` and must **not** be committed to ordinary Git history.
 
