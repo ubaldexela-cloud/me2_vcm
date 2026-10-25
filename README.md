@@ -2,6 +2,8 @@
 
 Wake-word plus 16-class spoken command recognition for a Raspberry Pi smart-device demo (AI231 ME2).
 
+**Selected and tested deployment device: Raspberry Pi 5 Model B Rev 1.1.** The course example lists Raspberry Pi 4 or Raspberry Pi 5 as alternatives; this project selected Pi 5. A Pi 4 was not used and was not benchmarked.
+
 Repository: https://github.com/ubaldexela-cloud/me2_vcm
 
 This tree contains **training/evaluation code, recorded metrics, feature metadata, and Raspberry Pi dashboard source**. It does **not** contain dataset audio, Vosk model files, wake-word training data, PyTorch `.pt` checkpoints, or the ONNX graph (`export/model.onnx` is local-only until a weight license is chosen).
@@ -12,7 +14,7 @@ This tree contains **training/evaluation code, recorded metrics, feature metadat
 - Input: 16 kHz mono, 4.0 s (64,000 samples), log-Mel `(B, 1, 40, 397)`.
 - Output: 16 logits (softmax outside the graph).
 - Classes: PLAY_MUSIC, WEATHER, TIME, LIGHT_ON, LIGHT_OFF, LIGHT_DIM, SET_TIMER, SET_ALARM, SET_TEMPERATURE, MEDIA_PAUSE, MEDIA_STOP, MEDIA_NEXT, VOLUME_UP, VOLUME_DOWN, UNKNOWN, SILENCE.
-- Deployment: ONNX Runtime on Raspberry Pi **5**, USB mic `plughw:2,0`, openWakeWord (`icy.onnx`, threshold 0.10), Vosk only for timer/alarm/temperature/brightness slots.
+- Deployment: ONNX Runtime on Raspberry Pi **5 Model B Rev 1.1**, USB mic `plughw:2,0`, openWakeWord (`icy.onnx`, threshold 0.10), Vosk only for timer/alarm/temperature/brightness slots.
 
 ## Two result families (do not mix)
 
@@ -29,9 +31,9 @@ Recorded on NVIDIA **A100 80GB PCIe**, PyTorch 2.8.0+cu128, seed **42**, best ep
 
 HPC job **66249** re-evaluated the released checkpoint and matched these numbers with **Δ = 0**. That used cluster PyTorch and local `VCM_MASTER` audio. It is **not** a clean-laptop or from-scratch training test. See `reports/REPRO_TEST.md` and `reports/VERIFIED_RUN.md`.
 
-### Live acoustic benchmark (Raspberry Pi **5 Model B Rev 1.1**)
+### Live acoustic benchmark (selected hardware: Raspberry Pi **5 Model B Rev 1.1**)
 
-These numbers are **not** Raspberry Pi 4 results. Device: Raspberry Pi **5 Model B Rev 1.1**, Debian 13, aarch64.
+**Not applicable — Raspberry Pi 5 was selected as the target hardware; Pi 4 was not used.** Device: Raspberry Pi **5 Model B Rev 1.1**, Debian 13, aarch64. These are Pi 5 measurements and are not claimed to transfer to Pi 4.
 
 Course-harness playback on **24 Oct 2026** (not re-run in the post-publication audit). Seed **82456**, 109 wake trials + 16 no-wake. Mic check skipped. The dashboard was **not** running during the 25 Oct SSH audit; no new acoustic trial was started.
 

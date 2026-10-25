@@ -1,5 +1,7 @@
 # VCM benchmark - Xela Ubalde - 20261024-075005
 
+**Hardware selection:** The selected and tested deployment device is **Raspberry Pi 5 Model B Rev 1.1**. The course example lists Raspberry Pi 4 or Raspberry Pi 5 as alternatives; this project selected Pi 5. **Not applicable — Raspberry Pi 5 was selected as the target hardware; Pi 4 was not used.** Metrics below are Pi 5 only and are not claimed to transfer to Pi 4.
+
 Wake word: **Icy** - trials: 109 with the wake word + 16 without - shuffle seed: 82456 - connection: ssh - holdout: huggingface
 
 Pi log file: ~/vcm_benchmark/benchmark_20261024-065959.log

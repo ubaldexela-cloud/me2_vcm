@@ -1,8 +1,8 @@
 # Raspberry Pi deployment
 
-Measured device: **Raspberry Pi 5 Model B Rev 1.1**, aarch64, Debian GNU/Linux 13 (trixie), Python 3.13.5.
+Selected and tested hardware: **Raspberry Pi 5 Model B Rev 1.1**, aarch64, Debian GNU/Linux 13 (trixie), Python 3.13.5.
 
-These notes and the live latency figures are **Pi 5** measurements. They are **not** Raspberry Pi 4 results. No Pi 4 run is in this repository.
+The course example lists Raspberry Pi 4 or Raspberry Pi 5 as alternatives. This project selected Pi 5. **Not applicable — Raspberry Pi 5 was selected as the target hardware; Pi 4 was not used.** Live latency and conditions are in `reports/live_pi5_20261024/`. Those numbers are Pi 5 only and are not claimed to transfer to Pi 4.
 
 ## Live latency (24 Oct 2026)
 
