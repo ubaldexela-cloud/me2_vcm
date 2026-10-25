@@ -29,19 +29,21 @@ Recorded on NVIDIA **A100 80GB PCIe**, PyTorch 2.8.0+cu128, seed **42**, best ep
 
 HPC job **66249** re-evaluated the released checkpoint and matched these numbers with **Δ = 0**. That used cluster PyTorch and local `VCM_MASTER` audio. It is **not** a clean-laptop or from-scratch training test. See `reports/REPRO_TEST.md` and `reports/VERIFIED_RUN.md`.
 
-### Live acoustic benchmark (Raspberry Pi **5**, not Pi 4)
+### Live acoustic benchmark (Raspberry Pi **5 Model B Rev 1.1**)
 
-Course harness playback, 24 Oct 2026, seed 82456, 109 wake trials + 16 no-wake. Mic check skipped.
+These numbers are **not** Raspberry Pi 4 results. Device: Raspberry Pi **5 Model B Rev 1.1**, Debian 13, aarch64.
+
+Course-harness playback on **24 Oct 2026** (not re-run in the post-publication audit). Seed **82456**, 109 wake trials + 16 no-wake. Mic check skipped. The dashboard was **not** running during the 25 Oct SSH audit; no new acoustic trial was started.
 
 | Metric | Value | Definition |
 |---|---|---|
 | Keyword / wake detect | **92.7%** | wake log or command event |
 | 19-intent accuracy | **40.4%** | course 19-way labels (ICY trains 16) |
 | False accept | **62.5% (10/16)** | out-of-scope fired |
-| Latency p50 / p95 | **6.16 / 10.89 s** | **end of played command → Pi log**, not ONNX ms |
-| ONNX infer mean / p95 | 12.8 / 19.5 ms | `infer_ms` |
+| End-to-end p50 / p95 | **6.16 / 10.89 s** | **end of played command audio → Pi log line** |
+| ONNX infer mean / p95 | 12.8 / 19.5 ms | Pi-reported `infer_ms` only |
 
-Full write-up: `reports/live_pi5_20261024/`. **Pi 4 latency is PENDING.** Do not label these as Pi 4 numbers.
+Write-up: `reports/live_pi5_20261024/` (copied from the 24 Oct course run). The playback harness is **not** in this repository; a GitHub clone cannot replay that test.
 
 ### Baseline (architecture-matched, not hardware-matched)
 
@@ -67,19 +69,19 @@ python -m venv .venv
 
 Raspberry Pi runtime versions (observed 25 Oct 2026): Python 3.13.5, onnxruntime 1.30.0, numpy **2.4.3**, flask 3.1.3, openwakeword 0.4.0, vosk 0.3.45, soundfile 0.14.0. The 24 Oct live bench recorded numpy **2.2.4** — the venv drifted; see `requirements-pi.txt`.
 
-## Laptop command that is actually tested here
+## Public verification (checksums only — not 84.01% accuracy)
 
-Checksum + optional ONNX dummy forward (no audio, no 84% claim):
+A clone of this repository can check published file hashes. That does **not** reproduce locked-test accuracy **0.8400588482555695** (84.01%).
 
 ```bash
 python scripts/verify_release.py
 ```
 
-Expected: `OK` for json/npy/csv rows in `reports/CHECKSUMS.txt`; `MISSING` for gitignored `artifacts/*.pt` and `export/model.onnx` until those files are supplied locally.
+Expected from a GitHub clone: `OK` for json/npy/csv rows in `reports/CHECKSUMS.txt`; **`MISSING`** for gitignored `artifacts/*.pt` and `export/model.onnx`. Optional ONNX dummy-forward needs a local ONNX file and `onnxruntime` (not claimed as a clean-room eval).
 
-## Locked-test evaluation (not one-command on a laptop)
+## Locked-test evaluation (private data + CUDA)
 
-Requires: locked **VCM_MASTER** test audio, CUDA, and `artifacts/best_model.pt` + `artifacts/mel_norm.pt` (SHA-256 in `reports/CHECKSUMS.txt`; **not in Git** until a weight license is chosen).
+Requires locked **VCM_MASTER** audio (not redistributed), CUDA, and `artifacts/best_model.pt` + `artifacts/mel_norm.pt` (SHA-256 in `reports/CHECKSUMS.txt`; **not in Git**; weight license undecided).
 
 ```bash
 export VCM_MASTER=/path/to/VCM_MASTER
@@ -89,7 +91,7 @@ python3 scripts/eval_locked_test.py \
   --out-dir reports/repro_eval
 ```
 
-Expected only if that environment matches the A100 job: accuracy 0.8400588, macro F1 0.7785515. The script **refuses CPU**. Training from scratch is **not** one-command and was **not** re-run for this submission.
+Expected only if that environment matches A100 job 66249: accuracy 0.8400588, macro F1 0.7785515. The script **refuses CPU**. Training from scratch is **not** available from the public tree (no audio, no checkpoint).
 
 ## Raspberry Pi deployment
 
