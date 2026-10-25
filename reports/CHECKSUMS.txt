@@ -1,5 +1,8 @@
 # SHA-256 of release artifacts
 # Computed on HPC while preparing the package. Re-run sha256sum to verify.
+# CSV hashes are the Git/LF checkout bytes (identical records to the
+# original Safe Mix result files after CRLF→LF). Do not use the CRLF
+# HPC-package hashes for these three CSVs.
 
 4c653cf5710ab46da4a94301045d47cb574a508d30b626f8158304825aa43e7f  artifacts/best_model.pt
 3a67c19aa467941fc55cdc7dabf4a6faa08deea3c28bcfd8c750ba66da9ec2ed  artifacts/mel_norm.pt
@@ -9,6 +12,6 @@
 dabe4902560a92a1fb552dedd575ee0b85c3bbbb184ef297f3689aac40e03f8b  export/class_map.json
 4119cabcdcf41ec2bd0f819d0962efc6752eeebb9667667928908af80069b334  export/feature_config.json
 cbf72268c0c025973b7d440917549d72ef372cd1e999e752b99b7224768fedd8  export/inference.py
-4f7746313fd86d97e655dbacd301423f96d761719247d321f6022a516770ff4b  manifests/safe_mix_train_index.csv
-473f3b5927ef1bf428bec486739f446cb3e9840d4ba5f0e98fb921efac7fb89a  reports/best_test_metrics.csv
-2c0d403d762cabfeb4026c3c792273733474031d5781d02c94d802fdf04d413e  reports/best_test_confusion_matrix.csv
+13272bf977f7727d3a3efd8aa37734bd8658bd72326353c0ede5ebb945111ba1  manifests/safe_mix_train_index.csv
+9a71bf313b82db267e1d203543ca4e97071e02a3f8f3767e5e75af38d43bc3e2  reports/best_test_metrics.csv
+1d31736c5a07d70370d09f5bb6e1055f704ca6876ffe6eca16dae8da0789302d  reports/best_test_confusion_matrix.csv

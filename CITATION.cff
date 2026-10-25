@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 title: "ICY ME2 Voice Controlled Smart Device"
-message: "Cite this student project if you use the code or report."
+message: "Cite this student project's original code and documentation if you use them. The MIT license field below applies only to those original files, not to datasets, third-party dependencies, or trained weights."
 type: software
 authors:
   - family-names: Ubalde
@@ -9,3 +9,84 @@ date-released: "2026-10-24"
 version: "ICY_final"
 license: MIT
 url: "https://github.com/ubaldexela-cloud/me2_vcm"
+notes: "license: MIT covers original source code and documentation in this repository only (see LICENSE). It does not grant rights to dataset audio, third-party corpora, third-party runtime licenses, or trained weights (.pt / ONNX). See DATASET_LICENSES.md, THIRD_PARTY.md, and MODEL_LICENSE.md. Weight redistribution rights are undecided."
+references:
+  - type: conference-paper
+    title: "Speech Model Pre-Training for End-to-End Spoken Language Understanding"
+    authors:
+      - family-names: Lugosch
+        given-names: Loren
+      - family-names: Ravanelli
+        given-names: Mirco
+      - family-names: Ignoto
+        given-names: Patrick
+      - family-names: Tomar
+        given-names: Vikrant Singh
+      - family-names: Bengio
+        given-names: Yoshua
+    year: 2019
+    conference:
+      name: Interspeech 2019
+    pages: "814-818"
+    doi: 10.21437/Interspeech.2019-2396
+    notes: "Introduces Fluent Speech Commands. Dataset audio is not redistributable under the Fluent Speech Commands Public License."
+  - type: conference-paper
+    title: "SLURP: A Spoken Language Understanding Resource Package"
+    authors:
+      - family-names: Bastianelli
+        given-names: Emanuele
+      - family-names: Vanzo
+        given-names: Andrea
+      - family-names: Swietojanski
+        given-names: Pawel
+      - family-names: Rieser
+        given-names: Verena
+    year: 2020
+    conference:
+      name: "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)"
+    pages: "7252-7262"
+    doi: 10.18653/v1/2020.emnlp-main.588
+    notes: "SLURP text annotations are CC BY 4.0. SLURP audio on Zenodo (10.5281/zenodo.4274930) is CC BY-NC 4.0."
+  - type: article
+    title: "Timers and Such: A Practical Benchmark for Spoken Language Understanding with Numbers"
+    authors:
+      - family-names: Lugosch
+        given-names: Loren
+      - family-names: Papreja
+        given-names: Piyush
+      - family-names: Ravanelli
+        given-names: Mirco
+      - family-names: Heba
+        given-names: Abdelwahab
+      - family-names: Parcollet
+        given-names: Titouan
+    year: 2021
+    doi: 10.48550/arXiv.2104.01604
+    notes: "Paper/site describe CC0. Zenodo record 4623772 rights field is Other (Open)."
+  - type: article
+    title: "Speech Commands: A Dataset for Limited-Vocabulary Speech Recognition"
+    authors:
+      - family-names: Warden
+        given-names: Pete
+    year: 2018
+    doi: 10.48550/arXiv.1804.03209
+    notes: "Used here for SILENCE / noise only. Paper states Creative Commons BY 4.0."
+  - type: data
+    title: "Multi-Sensor Voice Command Dataset"
+    authors:
+      - family-names: Rusci
+        given-names: Manuele
+      - family-names: Van hamme
+        given-names: Hugo
+      - family-names: Tuytelaars
+        given-names: Tinne
+    year: 2024
+    doi: 10.48804/IEKKVZ
+    notes: "Course license note records CC-BY-4.0 plus GDPR download-tracking. The KU Leuven RDR landing page also labels License/Data Use Agreement as Custom Dataset Terms. Full custom-terms text was not captured in the 2026-10-25 audit."
+  - type: data
+    title: "ai231-me2-voice-commands"
+    authors:
+      - name: airimonda
+    doi: 10.57967/hf/10723
+    repository-code: "https://huggingface.co/datasets/airimonda/ai231-me2-voice-commands"
+    notes: "Course Hugging Face bundle. Card has no single license. Do not redistribute as a bundle."
