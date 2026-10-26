@@ -6,7 +6,7 @@ Wake-word plus 16-class spoken command recognition for a Raspberry Pi smart-devi
 
 Repository: https://github.com/ubaldexela-cloud/me2_vcm
 
-This tree contains **training/evaluation code, recorded metrics, feature metadata, and Raspberry Pi dashboard source**. It does **not** contain dataset audio, Vosk model files, wake-word training data, PyTorch `.pt` checkpoints, or the ONNX graph (`export/model.onnx` is local-only until a weight license is chosen).
+This tree contains **training/evaluation code, recorded metrics, feature metadata, and Raspberry Pi dashboard source**. It does **not** contain dataset audio, Vosk model files, wake-word training data, PyTorch `.pt` checkpoints, or the ONNX graph. Weight redistribution is **HOLD — permission not established** (`MODEL_LICENSE.md`).
 
 ## Architecture
 
@@ -83,7 +83,7 @@ Expected from a GitHub clone: `OK` for json/npy/csv rows in `reports/CHECKSUMS.t
 
 ## Locked-test evaluation (private data + CUDA)
 
-Requires locked **VCM_MASTER** audio (not redistributed), CUDA, and `artifacts/best_model.pt` + `artifacts/mel_norm.pt` (SHA-256 in `reports/CHECKSUMS.txt`; **not in Git**; weight license undecided).
+Requires locked **VCM_MASTER** audio (not redistributed), CUDA, and `artifacts/best_model.pt` + `artifacts/mel_norm.pt` (SHA-256 in `reports/CHECKSUMS.txt`; **not in Git**; **HOLD — redistribution permission not established**).
 
 ```bash
 export VCM_MASTER=/path/to/VCM_MASTER
@@ -101,9 +101,9 @@ See `docs/DEPLOYMENT.md` and `pi/`. Do not unpack over a live demo. Obtain `expo
 
 ## Licensing
 
-- Original code: MIT (`LICENSE`).
-- Datasets: **not included**. FSC audio must not be redistributed; SLURP audio is CC BY-NC 4.0; SNIPS terms **unverified**; student recordings need consent (`DATASET_LICENSES.md`).
-- Weights: license **undecided** (`MODEL_LICENSE.md`). Neither `.pt` nor ONNX is in Git.
+- Original code and documentation: MIT (`LICENSE`). That grant does **not** cover datasets, third-party recordings, or model weights.
+- Datasets: **not included**. FSC audio must not be redistributed; SLURP audio is CC BY-NC 4.0; SNIPS terms **unresolved**; Multi-Sensor custom terms **unresolved**; contributor consent evidence was **not found** in inspected project directories (`DATASET_LICENSES.md`).
+- Weights: **HOLD — redistribution permission not established** (`MODEL_LICENSE.md`). Identified checkpoint SHA-256 `4c653cf5710ab46da4a94301045d47cb574a508d30b626f8158304825aa43e7f`; ONNX SHA-256 `3dd066e96e4cc9e17a1e1a571b1a6132e1b55e74870bb854268118e38555a0fb`. Neither file is published. No download links.
 
 ## Reviewer checklist
 

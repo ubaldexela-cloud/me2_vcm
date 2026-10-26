@@ -1,17 +1,23 @@
-# Model-weight license (not yet published)
+# Model-weight license — HOLD
 
-This package **does not publish** trained weights.
+**Status: HOLD — redistribution permission not established.**
 
-The repository MIT license applies to original code and documentation only. It does **not** license `artifacts/best_model.pt`, `export/model.onnx`, or `artifacts/mel_norm.pt`.
+This repository **does not publish** trained weights and **does not grant** a license to copy or redistribute them.
 
-- `export/model.onnx` is **not** committed. Keep a local copy from the HPC package and verify SHA-256 `3dd066e96e4cc9e17a1e1a571b1a6132e1b55e74870bb854268118e38555a0fb`. Redistribution terms are undecided.
-- `artifacts/best_model.pt` is a local copy for HPC transfer only. It is listed in `.gitignore` and must **not** be committed to ordinary Git history.
+The repository MIT license (`LICENSE`) covers **original code and documentation only**. It does **not** cover datasets, third-party recordings, or model weights (`artifacts/best_model.pt`, `export/model.onnx`, `artifacts/mel_norm.pt`).
 
-A public weight license has **not** been chosen in the original training tree. Before a GitHub Release:
+## Identified artifacts (not in Git)
 
-1. Do not attach dataset audio.
-2. Prefer a **non-commercial** weight license (for example CC BY-NC 4.0) because the training mix includes Fluent Speech Commands (academic / non-commercial public license) and SLURP **audio** (CC BY-NC 4.0).
-3. Host `best_model.pt` (~403 KiB) and optionally `mel_norm.pt` (~2.6 KiB) as a **GitHub Release asset** or a Hugging Face model repo. Do not put `.pt` files in the default branch.
-4. Publish the SHA-256 values from `reports/CHECKSUMS.txt`.
+| File | SHA-256 |
+|---|---|
+| 84.01% locked-test checkpoint `artifacts/best_model.pt` | `4c653cf5710ab46da4a94301045d47cb574a508d30b626f8158304825aa43e7f` |
+| Associated ONNX export `export/model.onnx` | `3dd066e96e4cc9e17a1e1a571b1a6132e1b55e74870bb854268118e38555a0fb` |
+| `artifacts/mel_norm.pt` | `3a67c19aa467941fc55cdc7dabf4a6faa08deea3c28bcfd8c750ba66da9ec2ed` |
 
-This file is a preparation note, not a granted license for redistribution of weights.
+These hashes match `reports/CHECKSUMS.txt` and `reports/TRAINING_METADATA.json`. There is **no public download link**. Do not commit or attach these files.
+
+## Why redistribution is on HOLD
+
+The Safe Mix training index includes clips that are not covered by a verified public grant, including **120** `SET_TEMPERATURE_REAL`, **278** `real_voice`, and **3** `xela_SET_TEMPERATURE_REAL` rows. Contributor consent evidence was **not found** in the inspected project directories. SNIPS licensing and Multi-Sensor custom terms remain **unresolved**. The mix also includes Fluent Speech Commands (academic / non-Share audio terms) and SLURP **audio** (CC BY-NC 4.0), as already recorded in `DATASET_LICENSES.md`.
+
+This file is a no-grant notice, not a license for weights.

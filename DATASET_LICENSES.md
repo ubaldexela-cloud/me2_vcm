@@ -39,9 +39,22 @@ Related Multi-Sensor paper listed on the RDR page (not independently re-read for
 From the Safe Mix `hf_usable` rows (no audio shipped here): SLURP, `group_synthetic`, `real_voice`, SNIPS, FluentSpeechCommands, CommonVoice_en, SpeechCommands_v2, `xela_SET_TEMPERATURE_REAL`.
 
 - Common Voice (en): Mozilla’s corpus is commonly released as **CC0**. The exact license of the specific `CommonVoice_en` rows in this HF extract was **not re-verified clip-by-clip**.
-- SNIPS: official terms for the **clips actually used** remain **unverified**. A candidate Sonos/Snips audio license exists (`sonos/spoken-language-understanding-research-datasets`: academic/research only, no commercial use), but this package cannot confirm that the HF `SNIPS` tags are that corpus (a different Snips `nlu-benchmark` repo is CC0 text). Do not assume FSC or CC-BY covers SNIPS.
+- SNIPS: official terms for the **clips actually used** remain **unresolved**. This update does **not** re-fetch vendor websites. Do not assume FSC or CC-BY covers SNIPS.
 - `group_synthetic`: class-internal TTS / cloned voices; not a public redistribution grant.
-- `real_voice` / `xela_SET_TEMPERATURE_REAL`: student or project recordings. Consent is required. Consent records were **not inspected**; this file does not claim consent exists.
+
+## Training-index counts and consent (project-directory audit)
+
+Counted from the published Safe Mix train index (`manifests/safe_mix_train_index.csv`; SHA + class + pool only). These are **index counts**, not redistributed audio:
+
+| Index label | Count |
+|---|---:|
+| `SET_TEMPERATURE_REAL` | 120 |
+| `real_voice` | 278 |
+| `xela_SET_TEMPERATURE_REAL` | 3 |
+
+Contributor consent evidence for those recordings is **currently missing** from the inspected project directories. This file does **not** claim that consent exists or was reviewed as a document. Multi-Sensor **custom dataset terms** remain **unresolved** (full custom-terms text was not captured in the published note).
+
+**Model-weight redistribution is on HOLD** until those issues are resolved (`MODEL_LICENSE.md`). Checkpoint and ONNX files are **not** in this repository.
 
 ## Split verification (no audio)
 
