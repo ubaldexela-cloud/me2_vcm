@@ -54,7 +54,7 @@ Counted from the published Safe Mix train index (`manifests/safe_mix_train_index
 
 Contributor consent evidence for those recordings is **currently missing** from the inspected project directories. This file does **not** claim that consent exists or was reviewed as a document. Multi-Sensor **custom dataset terms** remain **unresolved** (full custom-terms text was not captured in the published note).
 
-**Model-weight redistribution is on HOLD** until those issues are resolved (`MODEL_LICENSE.md`). Checkpoint and ONNX files are **not** in this repository.
+Model weights (`best_model.pt`, `model.onnx`, `mel_norm.pt`) are **All Rights Reserved — no public license granted** and are **not publicly released** (`MODEL_LICENSE.md`). That no-grant notice does **not** override the third-party terms or missing-consent issues above. Checkpoint, ONNX, and `mel_norm.pt` files are **not** in this repository.
 
 ## Split verification (no audio)
 

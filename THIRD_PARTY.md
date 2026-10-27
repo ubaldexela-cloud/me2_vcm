@@ -19,4 +19,4 @@ Canonical dataset table: `DATASET_LICENSES.md`.
 | openWakeWord | Upstream license | Separate from ICY MIT |
 | ONNX Runtime, Flask, NumPy, PyTorch | Their OSS licenses | |
 
-Weight redistribution: **HOLD — permission not established**. Weights remain unpublished. Training mix includes FSC, SLURP NC audio, unresolved SNIPS/Multi-Sensor terms, and student/contributor clips without consent evidence in inspected directories. Do not treat `.pt` or ONNX as a granted redistribution.
+Model weights (`best_model.pt`, `model.onnx`, `mel_norm.pt`): **All Rights Reserved — no public license granted**. They are **not publicly released**. The repository MIT license does not automatically license the weights, third-party datasets, or contributor recordings. All Rights Reserved does **not** override third-party rights or resolve missing contributor consent. Training mix includes FSC, SLURP NC audio, unresolved SNIPS/Multi-Sensor terms, and student/contributor clips without consent evidence in inspected directories (`MODEL_LICENSE.md`).

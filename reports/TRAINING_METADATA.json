@@ -116,7 +116,7 @@
   "checkpoint_sha256": "4c653cf5710ab46da4a94301045d47cb574a508d30b626f8158304825aa43e7f",
   "onnx_sha256": "3dd066e96e4cc9e17a1e1a571b1a6132e1b55e74870bb854268118e38555a0fb",
   "mel_norm_sha256": "3a67c19aa467941fc55cdc7dabf4a6faa08deea3c28bcfd8c750ba66da9ec2ed",
-  "weight_license": null,
+  "weight_license": "All Rights Reserved — no public license granted",
   "do_not_upload_pt": true,
   "public_repo_cannot_reproduce_locked_test": true,
   "public_repo_cannot_train_from_scratch": true
