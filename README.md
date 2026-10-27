@@ -99,10 +99,14 @@ Expected only if that environment matches A100 job 66249: accuracy 0.8400588, ma
 
 See `docs/DEPLOYMENT.md` and `pi/`. Do not unpack over a live demo. Obtain `export/model.onnx` from the HPC package (SHA `3dd066e9…` in `reports/CHECKSUMS.txt`); it is **not** in this Git tree. The wake model is separate and also not in Git. Vosk `vosk-model-small-en-us-0.15` is third-party and not shipped.
 
+## Dataset location
+
+Safe Mix Run 1 is a **private 30,254-clip training mix**, not a public downloadable dataset. This repository has **code and documentation**, not the audio. Public citations and access links: `DATASET_LICENSES.md`. Each source’s restrictions apply independently; **no single DOI** licenses the combined mix. Recorded license conflicts, unknown tags, and missing contributor consent mean the mix is **not cleared** for redistribution. Dataset checklist item: **incomplete / blocked**.
+
 ## Licensing
 
 - Original code and documentation: MIT (`LICENSE`). That grant does **not** automatically license the weights, third-party datasets, or contributor recordings.
-- Datasets: **not included**. FSC audio must not be redistributed; SLURP audio is CC BY-NC 4.0; SNIPS terms **unresolved**; Multi-Sensor custom terms **unresolved**; contributor consent evidence was **not found** in inspected project directories (`DATASET_LICENSES.md`).
+- Datasets: **not included**. See `DATASET_LICENSES.md`. FSC audio must not be redistributed; SLURP audio is recorded as CC BY-NC 4.0; SNIPS, Multi-Sensor custom terms, Timers and Such CC0 vs Zenodo “Other (Open)”, and several source tags remain **unresolved**; contributor consent evidence for **401** tagged clips was **not found**.
 - Weights (`best_model.pt`, `model.onnx`, `mel_norm.pt`): **All Rights Reserved — no public license granted** (`MODEL_LICENSE.md`). Identified checkpoint SHA-256 `4c653cf5710ab46da4a94301045d47cb574a508d30b626f8158304825aa43e7f`; ONNX SHA-256 `3dd066e96e4cc9e17a1e1a571b1a6132e1b55e74870bb854268118e38555a0fb`; `mel_norm.pt` SHA-256 `3a67c19aa467941fc55cdc7dabf4a6faa08deea3c28bcfd8c750ba66da9ec2ed`. Not publicly released. No download links. All Rights Reserved does **not** override third-party rights or resolve missing contributor consent.
 
 ## Reviewer checklist
